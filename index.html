@@ -187,10 +187,16 @@
                 <i class="far fa-calendar"></i>
               </span>
               <span class="post-meta-item-text">Posted on</span>
-              
 
-              <time title="Created: 2020-05-09 22:56:57 / Modified: 22:57:25" itemprop="dateCreated datePublished" datetime="2020-05-09T22:56:57+08:00">2020-05-09</time>
+              <time title="Created: 2020-05-09 22:56:57" itemprop="dateCreated datePublished" datetime="2020-05-09T22:56:57+08:00">2020-05-09</time>
             </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2020-05-10 10:10:15" itemprop="dateModified" datetime="2020-05-10T10:10:15+08:00">2020-05-10</time>
+              </span>
 
           <br>
             <span class="post-meta-item" title="Symbols count in article">
@@ -239,7 +245,7 @@
 <p>除了第一次向远程仓库推送内容外，我们后面修改代码后想向远程仓库提交代码使用的也是这个命令。默认情况下，git会将代码推送到与本地分支同名的远程分支。<br>我们提交代码的一般流程是这样的：添加到暂存区（git add）,提交到本地仓库（git commit）,最后推送到远程仓库（git push），具体可以参考图1。<br>克隆远程仓库（git clone）<br>如果我们来了一个新同事，需要下载远程仓库的代码进行开发怎么办？这个使用就用到了克隆命令，克隆命令可以将远程仓库的内容克隆一份，生成一个一模一样的本地仓库，同时会生成工作空间的内容。需要知道的是，默认情况下工作空间的内容是master分支的内容，如果需要其他分支，则需要创建本地分支，并且进行切换。例如我们从测试用的github上克隆上文推送的代码，假如我们克隆到一个新的文件夹gittest1,执行如下命令后，可以看到克隆后gittest1下面已经具有master分支的内容。<br>git clone <a href="https://github.com/xxx/test.git" target="_blank" rel="noopener">https://github.com/xxx/test.git</a> gittest1<br>复制代码<br>下载远程仓库的更新（git fetch/pull）<br>在多人协同的情况下，会不断的有人向远程仓库提交新内容。为了保证代码的同步，我们需要将远程代码拉到本地，git有2个命令可以将远程仓库的内容拉到本地，一个是pull，可以将远程仓库的代码拉到本地仓库，同时合并到本地工作空间；另一个是fetch命令，这个命令只将远程仓库的内容更新到本地仓库。<br>git fetch<br>复制代码执行上面命令可以将远程仓库的内容拉取到本地仓库，但并不会更新本地工作空间。如图所示，我们将gittest中文件添加一行（a5），然后同步到远程仓库。然后切换到目录gittest1，并通过git fetch命令拉取远程仓库的内容。可以看到gittest1中test.md文件中的内容并没有变化。然后我们再执行git merge命令，该命令会将本地仓库相同分支的内容更新到工作空间，此时再查看文件内容，已经更新为最新的内容。</p>
 <p>使用git pull命令可以直接将文件内容更新到工作空间，如图我们在gittest文件夹中test.md添加一行a6，并同步到远程仓库。然后，我们切换到gittest1文件夹执行git pull命令，可以看到文件内容已经更新。</p>
 <p>查看代码的作者（git blame）<br>在很大的项目中，团队成员会很多，有时候我们需要知道某一段代码的作者。这时可以使用git blame命令。通过该命令可以获取提交的ID、作者和时间等信息。<br>    git blame -L 5 test.md<br>复制代码<br>写到这里其实已经涵盖了Git的大部分常用命令，基本上可以满足我们日常开发使用。但是，Git的功能是如此的强大，以至于我们介绍三天三夜也无法讲完。本文先介绍到这里，后面再详细介绍每条命令的用法。</p>
-<p>作者：SunnyZhang的IT世界<br>链接：<a href="https://juejin.im/post/5d1c46c65188256d525ff33d" target="_blank" rel="noopener">https://juejin.im/post/5d1c46c65188256d525ff33d</a><br>来源：掘金<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
+<p>作者：SunnyZhang的IT世界<br>链接：<a href="https://juejin.im/post/5d1c46c65188256d525ff33d" target="_blank" rel="noopener">https://juejin.im/post/5d1c46c65188256d525ff33d</a><br>来源：掘金<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。 #</p>
 
       
     </div>
