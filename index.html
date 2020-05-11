@@ -20,12 +20,12 @@
     var CONFIG = {"hostname":"yuelama.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="a beginner, a learner">
+  <meta name="description" content="生如蝼蚁当立鸿鹄之志，命薄似纸应有不屈之心">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Steven&#39;s blog">
 <meta property="og:url" content="https://yuelama.github.io/index.html">
 <meta property="og:site_name" content="Steven&#39;s blog">
-<meta property="og:description" content="a beginner, a learner">
+<meta property="og:description" content="生如蝼蚁当立鸿鹄之志，命薄似纸应有不屈之心">
 <meta property="og:locale" content="en_US">
 <meta property="article:author" content="steven wu">
 <meta property="article:tag" content="javascript php">
@@ -169,7 +169,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="steven wu">
-      <meta itemprop="description" content="a beginner, a learner">
+      <meta itemprop="description" content="生如蝼蚁当立鸿鹄之志，命薄似纸应有不屈之心">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -188,15 +188,24 @@
               </span>
               <span class="post-meta-item-text">Posted on</span>
 
-              <time title="Created: 2020-05-09 22:56:57" itemprop="dateCreated datePublished" datetime="2020-05-09T22:56:57+08:00">2020-05-09</time>
+              <time title="Created: 2020-05-09 22:56:00" itemprop="dateCreated datePublished" datetime="2020-05-09T22:56:00+08:00">2020-05-09</time>
             </span>
               <span class="post-meta-item">
                 <span class="post-meta-item-icon">
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2020-05-10 10:10:15" itemprop="dateModified" datetime="2020-05-10T10:10:15+08:00">2020-05-10</time>
+                <time title="Modified: 2020-05-10 10:16:33" itemprop="dateModified" datetime="2020-05-10T10:16:33+08:00">2020-05-10</time>
               </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-folder"></i>
+              </span>
+              <span class="post-meta-item-text">In</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/github/" itemprop="url" rel="index"><span itemprop="name">github </span></a>
+                </span>
+            </span>
 
           <br>
             <span class="post-meta-item" title="Symbols count in article">
@@ -223,11 +232,21 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <p>本文主要介绍Git版本控制工具的具体使用，并不介绍其安装，具体安装可自行上网搜索。<br>本文所有操作均在Linux环境进行，但命令本身并不区分平台，在Windows平台也可正常运行。<br>为了便于大家进行实操练习，本文使用的远程Git库是GitHub，可以很方便的申请一个账户。<br>作者： SunnyZhang</p>
-<p>简述<br>Git是一个分布式的版本控制工具,其在使用上要比SVN等版本控制工具稍显复杂。为了便于理解,本文通过图文方式详细介绍Git的使用,以便于快速掌握Git。Git涉及的主要概念和命令如图所示。理解上述概念后,基本可以使用Git完成日常开发工作。</p>
-<p>从上图可以看出Git从概念上分为3个大的区域,分别是工作空间、本地仓库和远程仓库。另外还有一个暂存区域，也称为索引区。下面我们看一下各个区域是做什么的。体现Git是分布式版本控制的关键点是它具备一个本地仓库，其实平时的版本控制工作都是在本地库操作，如果不涉及团队协作或者备份，甚至可以只使用本地库即可。</p>
-<p>工作空间:其实就是我们在操作系统上的工作目录。我们能够通过操作系统的文件管理命令进行查看（例如在Linux上通过ls命令）。<br>本地仓库:工作空间有一个隐藏目录.git，这个目录及其内容并隶属工作空间，而是Git的本地仓库。它是用来实现版本控制的。<br>远程仓库: 远程仓库是存储在远程服务器上的仓库，主要实现多用户的协同。<br>暂存区： 暂存区一般存放在 “.git目录下” 下的index文件（.git/index）中，所以我们把暂存区有时也叫作索引（index）。</p>
-<p>创建工作空间<br>为了保持文章的完整性，这里啰嗦一下。创建工作空间其实就是创建一个本地目录。在Linux平台执行如下命令即可。<br>    mkdir gittest<br>复制代码然后切换到该目录，并在里面随便创建一个文件，可以执行如下命令。<br>    cd gittest<br>    echo “hello itworld123” &gt; test.md<br>复制代码完成上述操作后，我们可以看一下工作空间（其实就是一个本地目录，没有什么高大上的）。</p>
+          <ul>
+<li>本文主要介绍Git版本控制工具的具体使用，并不介绍其安装，具体安装可自行上网搜索。<br>本文所有操作均在Linux环境进行，但命令本身并不区分平台，在Windows平台也可正常运行。<br>为了便于大家进行实操练习，本文使用的远程Git库是GitHub，可以很方便的申请一个账户。<br>作者： SunnyZhang</li>
+</ul>
+<ul>
+<li>简述<br>Git是一个分布式的版本控制工具,其在使用上要比SVN等版本控制工具稍显复杂。为了便于理解,本文通过图文方式详细介绍Git的使用,以便于快速掌握Git。Git涉及的主要概念和命令如图所示。理解上述概念后,基本可以使用Git完成日常开发工作。</li>
+</ul>
+<ul>
+<li>从上图可以看出Git从概念上分为3个大的区域,分别是工作空间、本地仓库和远程仓库。另外还有一个暂存区域，也称为索引区。下面我们看一下各个区域是做什么的。体现Git是分布式版本控制的关键点是它具备一个本地仓库，其实平时的版本控制工作都是在本地库操作，如果不涉及团队协作或者备份，甚至可以只使用本地库即可。</li>
+</ul>
+<ul>
+<li>工作空间:其实就是我们在操作系统上的工作目录。我们能够通过操作系统的文件管理命令进行查看（例如在Linux上通过ls命令）。<br>本地仓库:工作空间有一个隐藏目录.git，这个目录及其内容并隶属工作空间，而是Git的本地仓库。它是用来实现版本控制的。<br>远程仓库: 远程仓库是存储在远程服务器上的仓库，主要实现多用户的协同。<br>暂存区： 暂存区一般存放在 “.git目录下” 下的index文件（.git/index）中，所以我们把暂存区有时也叫作索引（index）。</li>
+</ul>
+<ul>
+<li>创建工作空间<br>为了保持文章的完整性，这里啰嗦一下。创建工作空间其实就是创建一个本地目录。在Linux平台执行如下命令即可。<br>  mkdir gittest<br>复制代码然后切换到该目录，并在里面随便创建一个文件，可以执行如下命令。<br>  cd gittest<br>  echo “hello itworld123” &gt; test.md<br>复制代码完成上述操作后，我们可以看一下工作空间（其实就是一个本地目录，没有什么高大上的）。</li>
+</ul>
 <p>创建本地仓库（git init）<br>创建本地仓库其实非常简单，保持在刚才创建的文件夹内部（工作空间）。通过执行git init命令就可以初始化一个本地仓库。<br>    git init<br>复制代码完成本地仓库的创建之后，我们可以看到在目录下多出一个.git的隐藏目录，Git就是通过这个目录里面的内容实现版本控制的。</p>
 <p>我们可以看一下这个目录里面都包含什么内容。具体文件的含义超出本文的介绍范围，本文不做过多解释。这里只是对该目录有个感性的认识。</p>
 <p>查看状态（git status）<br>创建完成本地仓库之后就可以查看工作区的状态了。通过git status命令可以查看工作空间的状态（也就是文件的被管理情况）。<br>    git status<br>复制代码执行该命令后，可以看到在该工作区有一个文件，且处于未管理状态。</p>
@@ -270,7 +289,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="steven wu">
-      <meta itemprop="description" content="a beginner, a learner">
+      <meta itemprop="description" content="生如蝼蚁当立鸿鹄之志，命薄似纸应有不屈之心">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -343,7 +362,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="steven wu">
-      <meta itemprop="description" content="a beginner, a learner">
+      <meta itemprop="description" content="生如蝼蚁当立鸿鹄之志，命薄似纸应有不屈之心">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -416,7 +435,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="steven wu">
-      <meta itemprop="description" content="a beginner, a learner">
+      <meta itemprop="description" content="生如蝼蚁当立鸿鹄之志，命薄似纸应有不屈之心">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -509,7 +528,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="image" content="/images/avatar.gif">
       <meta itemprop="name" content="steven wu">
-      <meta itemprop="description" content="a beginner, a learner">
+      <meta itemprop="description" content="生如蝼蚁当立鸿鹄之志，命薄似纸应有不屈之心">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -645,7 +664,7 @@
     <img class="site-author-image" itemprop="image" alt="steven wu"
       src="/images/avatar.gif">
   <p class="site-author-name" itemprop="name">steven wu</p>
-  <div class="site-description" itemprop="description">a beginner, a learner</div>
+  <div class="site-description" itemprop="description">生如蝼蚁当立鸿鹄之志，命薄似纸应有不屈之心</div>
 </div>
 <div class="site-state-wrap motion-element">
   <nav class="site-state">
@@ -656,10 +675,16 @@
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
